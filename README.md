@@ -7,7 +7,7 @@ An AI-powered phishing detection platform that detects malicious URLs and phishi
 - URL Phishing Detection
 - Message Phishing Detection
 - AI Risk Score
-- Explainable AI
+- Explainable AIcd 
 - User Authentication
 - Dashboard & Scan History
 - REST API
