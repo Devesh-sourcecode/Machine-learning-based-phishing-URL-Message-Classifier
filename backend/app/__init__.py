@@ -22,6 +22,9 @@ def create_app():
     from app.api.v1.auth import auth_bp
     app.register_blueprint(auth_bp)
 
+    from app.api.v1.scan import scan_bp
+    app.register_blueprint(scan_bp)
+
     with app.app_context():
         from app.models import User
         db.create_all()
