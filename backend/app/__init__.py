@@ -2,7 +2,7 @@ from flask import Flask
 from flask_cors import CORS
 
 from app.config.config import Config
-from app.extensions import db, bcrypt
+from app.extensions import db, bcrypt, jwt
 
 
 def create_app():
@@ -14,9 +14,13 @@ def create_app():
 
     db.init_app(app)
     bcrypt.init_app(app)
+    jwt.init_app(app)
 
     from app.api.routes import api
     app.register_blueprint(api)
+
+    from app.api.v1.auth import auth_bp
+    app.register_blueprint(auth_bp)
 
     with app.app_context():
         from app.models import User
