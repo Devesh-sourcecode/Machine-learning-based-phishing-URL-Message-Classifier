@@ -2,7 +2,7 @@ from flask import Flask
 from flask_cors import CORS
 
 from app.config.config import Config
-from app.extensions import db, bcrypt, jwt
+from app.extensions import db, bcrypt, jwt, migrate
 
 
 def create_app():
@@ -15,6 +15,7 @@ def create_app():
     db.init_app(app)
     bcrypt.init_app(app)
     jwt.init_app(app)
+    migrate.init_app(app, db)
 
     from app.api.routes import api
     app.register_blueprint(api)

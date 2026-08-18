@@ -1,5 +1,5 @@
 from datetime import datetime
-
+from sqlalchemy import JSON
 from app.extensions import db
 
 
@@ -47,6 +47,11 @@ class Scan(db.Model):
     detection_method = db.Column(
         db.String(50),
         nullable=False,
+    )
+
+    features = db.Column(
+        JSON,
+        nullable=True,
     )
 
     created_at = db.Column(

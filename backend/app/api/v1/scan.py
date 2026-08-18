@@ -4,7 +4,7 @@ from flask_jwt_extended import get_jwt_identity, jwt_required
 from app.extensions import db
 from app.models import Scan
 from app.services.url_scanner import analyze_url
-
+from app.services.url_features import extract_url_features
 
 scan_bp = Blueprint(
     "scan",
@@ -42,6 +42,8 @@ def scan_url():
     try:
         result = analyze_url(url)
 
+        features = extract_url_features(url)
+
         user_id = int(get_jwt_identity())
 
         scan = Scan(
@@ -52,6 +54,7 @@ def scan_url():
             verdict=result["verdict"],
             risk_score=result["risk_score"],
             detection_method=result["detection_method"],
+            features=features,
         )
 
         db.session.add(scan)
@@ -67,6 +70,7 @@ def scan_url():
                 "risk_score": scan.risk_score,
                 "detection_method": scan.detection_method,
                 "indicators": result["indicators"],
+                "features": features,
                 "created_at": scan.created_at.isoformat(),
             },
         }), 200
