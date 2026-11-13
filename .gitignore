@@ -50,3 +50,4 @@ htmlcov/
 # Misc
 *.zip
 *.rar
+.postman/
