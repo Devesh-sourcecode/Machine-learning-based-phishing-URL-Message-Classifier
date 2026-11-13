@@ -6,19 +6,19 @@
 - [x] Project Structure
 - [x] Flask Setup
 - [x] Health API
-- [ ] Database
-- [ ] Authentication
+- [x] Database
+- [x] Authentication
 
 ## Phase 2 - Backend
 
-- [ ] User Module
-- [ ] Scan Module
-- [ ] History Module
-- [ ] Dashboard Module
+- [x] User Module
+- [x] Scan Module
+- [x] History Module
+- [x] Dashboard Module
 
 ## Phase 3 - AI
 
-- [ ] URL Detection
+- [x] URL Detection
 - [ ] Message Detection
 - [ ] Explainable AI
 
@@ -28,9 +28,3 @@
 - [ ] Dashboard
 - [ ] Scanner
 - [ ] History
-
-## Phase 5
-
-- [ ] Reports
-- [ ] Deployment
-- [ ] Documentation
